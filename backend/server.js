@@ -1,11 +1,16 @@
 import express from "express";
 import dotenv from "dotenv";
+import WorkoutsRoutes from './routes/WorkoutsRoutes.js'
 
 const app = express();
 
 // Dotenv Configuration
 
 dotenv.config();
+
+// Routes
+
+app.use('/',WorkoutsRoutes)
 
 // PORT
 
