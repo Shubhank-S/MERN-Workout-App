@@ -1,5 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
+import connectDB from "./db/db.js";
 import WorkoutsRoutes from './routes/WorkoutsRoutes.js'
 
 const app = express();
@@ -7,6 +8,10 @@ const app = express();
 // Dotenv Configuration
 
 dotenv.config();
+
+// Database Configuration
+
+connectDB();
 
 // Routes
 
