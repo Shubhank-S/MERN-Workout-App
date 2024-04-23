@@ -63,3 +63,32 @@ export const getWorkoutController= async(req,resp)=>{
       }).status(400)
     }
   }
+
+  export const updateWorkoutController=async(req,resp)=>{
+    try {
+      const {id} = req.params
+
+      if(!mongoose.Types.ObjectId.isValid(id)){
+        return resp.json({error:"No Such type of Workout"}).status(404)
+      }
+
+      const updateSingleWorkout = await WorkoutsModel.findByIdAndUpdate({_id:id},{
+        ...req.body
+      })
+
+      if(!updateSingleWorkout){
+        return resp.json({error:"No Such Workout found"})
+      }
+      resp.json({
+          success:true,
+          message:"Workout updated in the database",
+          updateSingleWorkout
+      }).status(200)
+    } catch (error) {
+      resp.json({
+          success:false,
+          message:"Error in Updating a Workout",
+          error
+      }).status(400)
+    }
+  }
