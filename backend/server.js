@@ -1,5 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
+import morgan from "morgan"
 import connectDB from "./db/db.js";
 import WorkoutsRoutes from './routes/WorkoutsRoutes.js'
 
@@ -8,6 +9,7 @@ const app = express();
 // Middlewares
 
 app.use(express.json())
+app.use(morgan("dev"))
 
 // Dotenv Configuration
 

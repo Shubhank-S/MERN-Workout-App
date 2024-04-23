@@ -1,5 +1,5 @@
 import express from 'express'
-import { createWorkoutsController, getWorkoutController, getWorkoutsController, updateWorkoutController } from '../controllers/WorkoutsControllers.js';
+import { createWorkoutsController, deleteWorkoutController, getWorkoutController, getWorkoutsController, updateWorkoutController } from '../controllers/WorkoutsControllers.js';
 
 const router = express.Router()
 
@@ -18,5 +18,9 @@ router.get('/get-workout/:id', getWorkoutController)
 // Patch || Update Single Workout
 
 router.patch('/update-workout/:id', updateWorkoutController)
+
+// DELETE || Delete a Workout
+
+router.delete('/delete-workout/:id', deleteWorkoutController)
 
 export default router;
