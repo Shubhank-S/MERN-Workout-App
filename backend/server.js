@@ -5,6 +5,10 @@ import WorkoutsRoutes from './routes/WorkoutsRoutes.js'
 
 const app = express();
 
+// Middlewares
+
+app.use(express.json())
+
 // Dotenv Configuration
 
 dotenv.config();

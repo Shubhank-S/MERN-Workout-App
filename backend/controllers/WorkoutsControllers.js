@@ -1,3 +1,5 @@
-export const WorkoutsController =(req,resp)=>{
- resp.send("hello controller")
+import WorkoutsModel from "../models/WorkoutsModel.js"
+
+export const createWorkoutsController = async(req,resp)=>{
+    
 }
