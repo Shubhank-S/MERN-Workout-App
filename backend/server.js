@@ -19,7 +19,7 @@ connectDB();
 
 // Routes
 
-app.use('/',WorkoutsRoutes)
+app.use('/api/v1/workout',WorkoutsRoutes)
 
 // PORT
 
