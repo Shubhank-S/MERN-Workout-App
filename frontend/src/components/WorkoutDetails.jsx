@@ -1,6 +1,6 @@
 import React from 'react'
 
-function WorkoutDetails({key,workout}) {
+function WorkoutDetails({workout}) {
   return (
     <section className="workout-details">
       <h4>{workout.title}</h4>
