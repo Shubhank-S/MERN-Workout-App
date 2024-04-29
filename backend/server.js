@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import morgan from "morgan"
+import cors from "cors"
 import connectDB from "./db/db.js";
 import WorkoutsRoutes from './routes/WorkoutsRoutes.js'
 
@@ -10,6 +11,7 @@ const app = express();
 
 app.use(express.json())
 app.use(morgan("dev"))
+app.use(cors())
 
 // Dotenv Configuration
 
