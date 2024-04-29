@@ -1,11 +1,10 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
-import { useContext } from "react";
-import { WorkoutContext } from "./context/WorkoutContext";
+import useWorkoutContext from "./hooks/useWorkoutContext";
 
 function App() {
-  const name = useContext(WorkoutContext);
+  const name = useWorkoutContext();
   console.log(name);
   return (
     <div className="App">
