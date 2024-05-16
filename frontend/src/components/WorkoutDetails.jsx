@@ -59,8 +59,8 @@ function WorkoutDetails({ workout }) {
         {workout.reps}
       </p>
       <p>{workout.createdAt}</p>
-      <button onClick={handleUpdateWorkout}>Update</button>
-      <button onClick={handleDeleteWorkout}>Delete</button>
+      <button onClick={handleUpdateWorkout} className="update_button">Update</button>
+      <button onClick={handleDeleteWorkout} className="delete_button">Delete</button>
     </section>
   );
 }
