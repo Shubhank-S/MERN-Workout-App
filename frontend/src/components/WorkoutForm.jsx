@@ -1,10 +1,18 @@
 import React, { useState } from "react";
+import useWorkoutContext from "../hooks/useWorkoutContext";
 
 function WorkoutForm() {
-  const [title, setTitle] = useState("");
-  const [load, setLoad] = useState("");
-  const [reps, setReps] = useState("");
   const [error, setError] = useState(null);
+  const {
+    workouts,
+    setWorkouts,
+    load,
+    setLoad,
+    title,
+    setTitle,
+    reps,
+    setReps,
+  } = useWorkoutContext();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -30,6 +38,7 @@ function WorkoutForm() {
         setLoad("");
         setReps("");
         console.log("New Workout added", json);
+        setWorkouts(json);
       }
     } catch (error) {
       setError(error);

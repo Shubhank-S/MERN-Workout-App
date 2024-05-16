@@ -4,8 +4,8 @@ import Home from "./pages/Home";
 import useWorkoutContext from "./hooks/useWorkoutContext";
 
 function App() {
-  const name = useWorkoutContext();
-  console.log(name);
+  // const name = useWorkoutContext();
+  // console.log(name);
   return (
     <div className="App">
       <BrowserRouter>

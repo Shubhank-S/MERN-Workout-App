@@ -5,7 +5,7 @@ function Navbar() {
   return (
     <header>
       <div className="container">
-        <NavLink to="/">Workout</NavLink>
+        <NavLink to="/">Workout Mangement System</NavLink>
       </div>
     </header>
   );
