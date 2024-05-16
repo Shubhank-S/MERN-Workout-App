@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import useWorkoutContext from "../hooks/useWorkoutContext";
+import { CREATE_WORKOUT_API } from "../api/Api";
 
 function WorkoutForm() {
   const [error, setError] = useState(null);
@@ -19,7 +20,7 @@ function WorkoutForm() {
     try {
       const workout = { title, load, reps };
       const response = await fetch(
-        "http://localhost:8080/api/v1/workout/create-workout",
+        `${CREATE_WORKOUT_API}`,
         {
           method: "POST",
           body: JSON.stringify(workout),

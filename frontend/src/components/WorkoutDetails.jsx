@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 import useWorkoutContext from "../hooks/useWorkoutContext";
+import { DELETE_WORKOUT_API, UPDATE_WORKOUT_API } from "../api/Api";
 
 function WorkoutDetails({ workout }) {
-  const [workoutDelete, setWorkoutDelete] = useState();
-  const { load, setLoad, title, setTitle, reps, setReps } = useWorkoutContext();
+ 
+  const { load, title, reps } = useWorkoutContext();
   const handleUpdateWorkout = async () => {
     try {
       const newTitle = prompt("Enter New Exercise");
       const newLoads = prompt("Enter New Loads");
       const newReps = prompt("Enter New Reps");
       const response = await fetch(
-        `http://localhost:8080/api/v1/workout/update-workout/${workout._id}`,
+        `${UPDATE_WORKOUT_API}/${workout._id}`,
         {
           method: "PATCH",
           headers: {
@@ -33,12 +34,9 @@ function WorkoutDetails({ workout }) {
   };
   const handleDeleteWorkout = async () => {
     try {
-      const response = await fetch(
-        `http://localhost:8080/api/v1/workout/delete-workout/${workout._id}`,
-        {
-          method: "DELETE",
-        }
-      );
+      const response = await fetch(`${DELETE_WORKOUT_API}/${workout._id}`, {
+        method: "DELETE",
+      });
       const json = await response.json();
       if (response.ok) {
         console.log(" Workout Deleted", json);
@@ -59,8 +57,12 @@ function WorkoutDetails({ workout }) {
         {workout.reps}
       </p>
       <p>{workout.createdAt}</p>
-      <button onClick={handleUpdateWorkout} className="update_button">Update</button>
-      <button onClick={handleDeleteWorkout} className="delete_button">Delete</button>
+      <button onClick={handleUpdateWorkout} className="update_button">
+        Update
+      </button>
+      <button onClick={handleDeleteWorkout} className="delete_button">
+        Delete
+      </button>
     </section>
   );
 }
